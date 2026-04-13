@@ -31,12 +31,12 @@ namespace Nehta.Xsp.Impl.V1
     /// <summary>
     /// 'id' attribute name.
     /// </summary>
-    private static string XmlIdLocalName = "id";
+    private readonly static string XmlIdLocalName = "id";
 
     /// <summary>
     /// Signature element name.
     /// </summary>
-    private static string SignatureElement = "Signature";
+    private readonly static string SignatureElement = "Signature";
 
 
     /// <summary>
@@ -153,7 +153,7 @@ namespace Nehta.Xsp.Impl.V1
       foreach (XmlElement elementToSign in elementsToSign)
       {
         // Check if the element has an existing 'id' attribute
-        string referenceId = null;
+        string referenceId;
         IList<string> elemIdValues = GetIdValues(elementToSign);
         if (elemIdValues.Count == 0)
         {
